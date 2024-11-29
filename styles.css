@@ -11,7 +11,7 @@
 
 html {
     scroll-behavior: smooth;
-}
+} 
 
 body {
     display: flex;
@@ -28,6 +28,7 @@ header {
     text-align: center;
     width: 100%;
     color: #fff;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 #logo{
@@ -35,16 +36,27 @@ header {
     border-radius: 0.5rem;
     border: #333 20px;
 }
-
 header h1{
     margin: 0;
     font-size: 2.5rem;
+}
+
+nav{
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e79c8d;
+    z-index: 1000;
+    padding: 10px 0;
+    transition: background-color 0.3s ease-in-out;
 }
 
 nav ul{
     list-style-type: none;
     padding: 0;
     margin: 10px 0;
+    justify-content: center;
+    display: flex;
 }
 
 nav ul li{
@@ -116,15 +128,40 @@ section#galeria img {
     box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
 }
 
-section#contacto i {
-    color: black;
+/* Botón "Ir Arriba" */
+#backToTop {
+    position: fixed;
+    bottom: 2rem; /* 32px */
+    right: 2rem; /* 32px */
+    width: 3rem; /* 48px */
+    height: 3rem; /* 48px */
+    background-color: #f387cf;
+    color: white;
+    font-size: 1.5rem; /* 24px */
+    border: none;
+    border-radius: 50%;
+    box-shadow: 0 0.25rem 0.5rem rgba(0, 0, 0, 0.2); /* 4px y 8px */
+    cursor: pointer;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    opacity: 0; /* Oculto por defecto */
+    transform: scale(0); /* Reducido por defecto */
+    z-index: 1000;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
-section#contacto i:hover{
-    text-decoration: underline;
-    color: #f387cf;
-    background-color: #f9f9f92f;
+#backToTop:hover {
+    background-color: #e79c8d;
 }
+
+#backToTop.show {
+    opacity: 1;
+    transform: scale(1);
+}
+
 
 footer {
     display: flex;
@@ -133,7 +170,7 @@ footer {
     justify-content: center;
     padding: 10px 0; 
     width: 100%;
-    background-color: #e79c8d;
+    background: linear-gradient(to bottom, #f9f9f99f, #f9f9f92f);
     text-align: center;
 }
 
@@ -151,16 +188,6 @@ footer {
     text-align: center;
 }
 
-.footer-section.social i{
-    color: white;
-}
-
-.footer-section.social i:hover{
-    text-decoration: underline;
-    color: #f387cf;
-    background-color: #f9f9f92f;
-}
-
 .footer-bottom {
     padding: 20px;
     font-size: 0.9rem;
@@ -171,12 +198,12 @@ footer {
 
 .footer-bottom p {
     font-size: 1rem;
-    color: #fff;
+    color: #777;
 }
 
 h3 {
     text-align: center;
     font-size: 2.5rem;
-    color: #fff;
+    color: #f387cf;
     margin-bottom: 20px;
 }
